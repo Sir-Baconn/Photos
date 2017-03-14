@@ -1,0 +1,19 @@
+Window		|	Person
+-----------------------------------------
+Log In Screen	| 	SM
+Admin Page	|	SM
+User List	|	SM
+Delete User	|	SM
+Add User	|	SM
+User Screen	|	GF
+Create Album	|	GF
+User Album	|	SM
+Search Photos	|	SM
+Add Photo	|	GF
+Caption Photo	|	GF
+Focus Photo	|	GF
+Copy Photo	|	GF
+Move Photo	|	GF
+Add Tags	|	GF
+Delete Tags	|	GF
+Slideshow	| 	SM

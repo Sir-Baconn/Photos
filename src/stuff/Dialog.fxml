@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.FXMLController">
+	<children>
+	<Label text = "Account Setup"
+	fx:id="label"
+	layoutX = "150"
+	layoutY = "10"/>
+	
+	<Label text = "Username:"
+	fx:id="UserLab"
+	layoutX="60"
+	layoutY="50"/>
+	
+	<Label text = "Password:"
+	fx:id="PassLab"
+	layoutX="60"
+	layoutY="100"/>
+	
+	<Label text = "Confirm Password:"
+	fx:id="PassconfLab"
+	layoutX="10"
+	layoutY="150"/>
+	
+	<Label text = "Passwords don't match"
+	fx:id="NoMatch"
+	layoutX = "10"
+	layoutY = "250"/>
+	
+	<TextField text = ""
+	fx:id="UserName"
+	
+	layoutX = "150"
+	layoutY = "50"/>
+	
+	<PasswordField text = ""
+	fx:id="Password"
+	layoutX = "150"
+	layoutY = "100"/>
+	
+	<PasswordField text = ""
+	fx:id="PasswordConf"
+	layoutX = "150"
+	layoutY = "150"/>
+	
+	<Button text="Create"
+	fx:id="Enter"
+	onAction = "#enterConfirmPass"
+	layoutX = "100"
+	layoutY = "200"/>
+	
+	<Button text = "Cancel"
+	fx:id="Cancel"
+	onAction = "#cancelConfirmPass"
+	layoutX = "200"
+	layoutY = "200"/>
+
+	</children>
+</Pane>
+

@@ -34,6 +34,21 @@
 	layoutX = "10"
 	layoutY = "250"/>
 	
+	<Label text = "Username required"
+	fx:id="UsernameErr"
+	layoutX = "10"
+	layoutY = "250"/>
+	
+	<Label text = "Username taken"
+	fx:id="UsernameTaken"
+	layoutX = "10"
+	layoutY = "250"/>
+	
+	<Label text = "Account created!"
+	fx:id="Success"
+	layoutX = "10"
+	layoutY = "250"/>
+	
 	<TextField text = ""
 	fx:id="UserName"
 	

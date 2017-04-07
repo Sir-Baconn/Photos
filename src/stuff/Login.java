@@ -63,9 +63,18 @@ public class Login {
 					
 				}
 				
-				
-			
-			
+		});
+		
+		LoginBut.setOnAction(e -> {
+			if(UserText.getText().length() < 1 || PassText.getText().length() < 1){
+				System.out.println("Please enter both a Username and Password.");
+				return;
+			}
+			Account tempAcc = Account.getAccount();
+			if(tempAcc != null && tempAcc.user.username.equals(UserText.getText())){
+				System.out.println("Username found!!");
+				//Name already taken label comes up
+			}
 		});
 		
 	}

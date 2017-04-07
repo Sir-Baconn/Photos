@@ -35,12 +35,14 @@ public class FXMLController {
 			
 		}else{
 			if(this.Password.getText().equals(this.PasswordConf.getText())){
-				if(acc.getUser(this.UserName.getText())){
+				Account tempAcc = Account.getAccount();
+				if(tempAcc != null && tempAcc.user.username.equals((this.UserName.getText()))){
 					this.UsernameTaken.setVisible(true);
 					//Name already taken label comes up
 				}else{
 					try{
 						acc.addUser(this.UserName.getText(), this.Password.getText());
+						Account.writeAccount(acc);
 						this.Success.setVisible(true);
 					}catch(Exception ez){}
 				}

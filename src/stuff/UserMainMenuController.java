@@ -121,7 +121,7 @@ public class UserMainMenuController {
 		albumsListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Album>(){
 			@Override
 			public void changed(ObservableValue<? extends Album> observable, Album oldValue, Album newValue) {
-				numPhotosLabel.setText(numPhotosLabel.getText() + " " + newValue.numPhotos);
+				numPhotosLabel.setText(numPhotosLabel.getText() + " " + newValue.getNumPhotos());
 				earliestDateLabel.setText(earliestDateLabel.getText() + " no date implementation yet");
 				latestDateLabel.setText(latestDateLabel.getText() + " no date implementation yet");
 				albumNameLabel.setText(albumNameLabel.getText() + " " + newValue.name);

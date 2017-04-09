@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class FXMLController {
 	@FXML private Label Confirm;
@@ -23,36 +24,49 @@ public class FXMLController {
 	@FXML private Label UsernameErr;
 	@FXML private Label UsernameTaken;
 	@FXML private Label Success;
-	Account acc = new Account();
-	
+	private Stage primaryStage;
+	private Pane layout;
+
 	
 	@FXML
 	private void enterConfirmPass(ActionEvent e){
+		Stage currentWindow = (Stage)Enter.getScene().getWindow();
+		
 		reset();
 		if(this.UserName.getText().equals("") || this.UserName.getText().equals(" ")){
 			this.UsernameErr.setVisible(true);
 			//Display error that name is required
 			
 		}else{
+			if(UserName.getText().equals("admin")){
+				System.out.println("You can not create an admin account. If you are the admin use admin credentials to log in.");
+				return;
+			}
 			if(this.Password.getText().equals(this.PasswordConf.getText())){
-				Account tempAcc = Account.getAccount();
-				if(tempAcc != null && tempAcc.user.username.equals((this.UserName.getText()))){
+				if(PhotoAlbum.globalAccount == null){
+					System.out.println("we did something wrong");
+				}
+				//Account tempAcc = Account.getAccount();
+				if(!PhotoAlbum.globalAccount.isEmpty && PhotoAlbum.globalAccount.userExists(UserName.getText(), Password.getText())){
 					this.UsernameTaken.setVisible(true);
 					//Name already taken label comes up
 				}else{
+					System.out.println("entered");
 					try{
-						acc.addUser(this.UserName.getText(), this.Password.getText());
-						Account.writeAccount(acc);
+						PhotoAlbum.globalAccount.addUser(this.UserName.getText(), this.Password.getText());
+						Account.writeAccount(PhotoAlbum.globalAccount);
 						this.Success.setVisible(true);
-					}catch(Exception ez){}
+					}catch(Exception ez){
+						ez.printStackTrace();
+					}
 				}
 			}
+			currentWindow.close();
 		}
 		
 		
 	}
 	
-	@FXML
 	public void initialize(String UserName, String Password){
 		this.Success.setVisible(false);
 		this.NoMatch.setVisible(false);
@@ -62,13 +76,17 @@ public class FXMLController {
 		this.Password.setText(Password);
 	}
 	
+	public void initialize(){
+		this.Success.setVisible(false);
+		this.NoMatch.setVisible(false);
+		this.UsernameErr.setVisible(false);
+		this.UsernameTaken.setVisible(false);
+	}
+	
 	@FXML
 	private void cancelConfirmPass(ActionEvent e){
-		if(this.Password.getText().equals(this.PasswordConf.getText())){
-			System.out.println("Matching passwords");
-		}else{
-			this.NoMatch.setVisible(true);
-		}
+		Stage stage = (Stage)Cancel.getScene().getWindow();
+		stage.close();
 	}
 	
 	private void reset(){
@@ -76,6 +94,11 @@ public class FXMLController {
 		this.NoMatch.setVisible(false);
 		this.UsernameErr.setVisible(false);
 		this.UsernameTaken.setVisible(false);
+	}
+
+	public void start(Stage primaryStage, Pane layout) {
+		this.primaryStage = primaryStage;
+		this.layout = layout;
 	}
 	
 	

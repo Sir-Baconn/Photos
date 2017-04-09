@@ -18,4 +18,13 @@ public class User implements Serializable{
 	public String toString(){
 		return this.username + " " + this.password;
 	}
+	
+	public boolean equals(Object o){
+		if(o == null || !(o instanceof User)){
+			return false;
+		}
+		User other = (User)o;
+		
+		return this.username.equals(other.username) && this.password.equals(other.password);
+	}
 }

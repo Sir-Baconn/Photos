@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<Pane fx:id="layout" prefHeight="439.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.AdminController">
+   <children>
+      <ComboBox fx:id="adminCombo" layoutX="159.0" layoutY="68.0" prefWidth="150.0" promptText="List Users">
+      	<items>
+       		<FXCollections fx:factory="observableArrayList">
+        		<String fx:value="List Users" />
+        		<String fx:value="Create User" />
+        		<String fx:value="Delete User" />
+        	</FXCollections>
+        </items>
+      </ComboBox>
+      <ListView fx:id="userListView" layoutX="134.0" layoutY="143.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="userListLabel" layoutX="134.0" layoutY="126.0" text="Current Users" />
+      <Button fx:id="deleteButton" layoutX="208.0" layoutY="343.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete Selected User" />
+   </children>
+</Pane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane fx:id="layout" prefHeight="598.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserMainMenuController">
+   <children>
+      <ListView fx:id="albumsListView" layoutX="65.0" layoutY="89.0" prefHeight="418.0" prefWidth="200.0" />
+      <Label fx:id="albumsListViewLabel" layoutX="65.0" layoutY="72.0" text="Albums:" />
+      <Text fx:id="loggedInAsText" layoutX="605.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as " />
+      <Label fx:id="numPhotosLabel" layoutX="322.0" layoutY="130.0" text="Number of Photos :" />
+      <Label fx:id="earliestDateLabel" layoutX="322.0" layoutY="155.0" text="Date of Earliest Photo :" />
+      <Label fx:id="latestDateLabel" layoutX="322.0" layoutY="180.0" text="Date of Latest Photo :" />
+      <Label fx:id="albumNameLabel" layoutX="322.0" layoutY="105.0" text="Album Name :" />
+      <Button fx:id="addAlbumButton" layoutX="322.0" layoutY="250.0" mnemonicParsing="false" onAction="#addAlbum" text="Add New Album" />
+      <Button fx:id="deleteAlbumButton" layoutX="322.0" layoutY="300.0" mnemonicParsing="false" onAction="#deleteAlbum" text="Delete Selected Album" />
+      <Button fx:id="renameAlbumButton" layoutX="322.0" layoutY="350.0" mnemonicParsing="false" onAction="#renameAlbum" text="Rename Selected Album" />
+      <Button fx:id="openAlbumButton" layoutX="322.0" layoutY="400.0" mnemonicParsing="false" onAction="#openAlbum" text="Open Selected Album" />
+      <Button fx:id="searchPhotosButton" layoutX="322.0" layoutY="450.0" mnemonicParsing="false" onAction="#searchPhotos" text="Search Photos" />
+   </children>
+</Pane>

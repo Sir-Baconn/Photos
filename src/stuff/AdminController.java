@@ -99,8 +99,10 @@ public class AdminController {
 							
 						userListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<User>(){
 							@Override
-							public void changed(ObservableValue<? extends User> observable, User oldValue,
+							public void changed(ObservableValue<? extends User> observable1, User oldValue,
 									User newValue) {
+								if(observable.getValue().toString().equals("List Users"))
+									return;
 								deleteButton.setVisible(true);
 							}
 							

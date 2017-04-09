@@ -71,12 +71,32 @@ public class Account implements Serializable{
 		return false;
 	}
 	
+	public void printUsers(){
+		for(User user : users){
+			System.out.println("User: " + user);
+			for(Album album : user.albums){
+				System.out.println("Album: " + album);
+			}
+		}
+	}
+	
 	public boolean adminExists(){
 		return admin != null ? true : false;
 	}
 
 	public List<User> getAllUsers() {
 		return this.users;
+	}
+	
+	public User getUser(String username, String password){
+		User tempUser = new User(username, password);
+		for(User user : users){
+			if(user.equals(tempUser)){
+				return user;
+			}
+		}
+		System.out.println("User was not found");
+		return null;
 	}
 	
 	public boolean deleteUser(User userToDelete){

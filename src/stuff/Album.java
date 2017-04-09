@@ -1,7 +1,41 @@
 package stuff;
 
-public class Album {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Album implements Serializable{
 	
 	//needs stuff - list of photos, the user of these photos, etc (look at assignment)
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public String name;
+	public List<Photo> photos;
+	private int numPhotos;
+	
+	public Album(String name){
+		this.name = name;
+		photos = new ArrayList<Photo>();
+	}
+	
+	public int getNumPhotos(){
+		return photos.size();
+	}
+	
+	public Date getEarliestDatedPhoto(){
+		return new Date();
+	}
+	
+	public Date getLatestDatedPhoto(){
+		return new Date();
+	}
+	
+	public String toString(){
+		return this.name;
+	}
 }

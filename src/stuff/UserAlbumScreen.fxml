@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="747.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserAlbumController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="932.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="932.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="addPhotoButton" layoutX="237.0" layoutY="533.0" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo" />
+      <Button fx:id="deletePhotoButton" layoutX="367.0" layoutY="533.0" mnemonicParsing="false" onAction="#deletePhoto" text="Delete Photo" />
+      <Button fx:id="captionPhotoButton" layoutX="509.0" layoutY="533.0" mnemonicParsing="false" onAction="#captionPhoto" text="Caption Photo" />
+      <Button fx:id="focusPhotoButton" layoutX="660.0" layoutY="533.0" mnemonicParsing="false" onAction="#focusPhoto" text="Focus Photo" />
+      <Button fx:id="addTagsButton" layoutX="780.0" layoutY="533.0" mnemonicParsing="false" onAction="#addTags" text="Add Tags" />
+      <Button fx:id="removeTagsButton" layoutX="883.0" layoutY="533.0" mnemonicParsing="false" onAction="#removeTags" text="Remove Tags" />
+      <Button fx:id="copyPhotoButton" layoutX="448.0" layoutY="598.0" mnemonicParsing="false" onAction="#copyPhoto" text="Copy Photo" />
+      <Button fx:id="movePhotoButton" layoutX="579.0" layoutY="598.0" mnemonicParsing="false" onAction="#movePhoto" text="Move Photo" />
+      <Button fx:id="startSlideshowButton" layoutX="710.0" layoutY="598.0" mnemonicParsing="false" onAction="#startSlideshow" text="Start Slideshow" />
+      <Text fx:id="albumNameText" layoutX="537.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Album Name&gt;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

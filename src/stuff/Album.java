@@ -14,13 +14,17 @@ public class Album implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public String name;
+	private String name;
 	public List<Photo> photos;
 	private int numPhotos;
 	
 	public Album(String name){
 		this.name = name;
 		photos = new ArrayList<Photo>();
+	}
+	
+	public String getName(){
+		return this.name;
 	}
 	
 	public int getNumPhotos(){
@@ -35,7 +39,20 @@ public class Album implements Serializable{
 		return new Date();
 	}
 	
+	public void setName(String name){
+		this.name = name;
+	}
+	
 	public String toString(){
 		return this.name;
+	}
+	
+	public boolean equals(Object o){
+		if(o == null || !(o instanceof Album)){
+			return false;
+		}
+		Album other = (Album)o;
+		
+		return this.name.equals(other.name);
 	}
 }

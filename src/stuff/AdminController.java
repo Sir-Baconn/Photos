@@ -93,7 +93,6 @@ public class AdminController {
 						userListLabel.setText("Current Users (select one to delete)");
 						
 						if(userListView.getSelectionModel().getSelectedItem() != null){
-							System.out.println("ayyyyyyyyyyyyyyyyyy");
 							userListView.getSelectionModel().clearSelection();
 						}
 							

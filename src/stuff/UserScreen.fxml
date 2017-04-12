@@ -20,5 +20,7 @@
       <Button fx:id="renameAlbumButton" layoutX="322.0" layoutY="350.0" mnemonicParsing="false" onAction="#renameAlbum" text="Rename Selected Album" />
       <Button fx:id="openAlbumButton" layoutX="322.0" layoutY="400.0" mnemonicParsing="false" onAction="#openAlbum" text="Open Selected Album" />
       <Button fx:id="searchPhotosButton" layoutX="322.0" layoutY="450.0" mnemonicParsing="false" onAction="#searchPhotos" text="Search Photos" />
+      <TextField fx:id="renameTextField" layoutX="492.0" layoutY="350.0" />
+      <Button fx:id="submitRenameButton" layoutX="650.0" layoutY="350.0" mnemonicParsing="false" onAction="#submitRename" text="Submit" />
    </children>
 </Pane>

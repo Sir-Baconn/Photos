@@ -88,6 +88,10 @@ public class Account implements Serializable{
 		return this.users;
 	}
 	
+	public List<Album> getAllUserAlbums(User user){
+		return user.albums;
+	}
+	
 	public User getUser(String username, String password){
 		User tempUser = new User(username, password);
 		for(User user : users){
@@ -100,6 +104,7 @@ public class Account implements Serializable{
 	}
 	
 	public boolean deleteUser(User userToDelete){
+		//loop is unnecessary
 		for(User user : users){
 			if(user.equals(userToDelete)){
 				users.remove(userToDelete);
@@ -107,6 +112,31 @@ public class Account implements Serializable{
 			}
 		}
 		System.out.println("User to delete was not found");
+		return false;
+	}
+	
+	public void addAlbum(User currentUser, Album newAlbum){
+		for(Album a : currentUser.albums){
+			System.out.println(a);
+		}
+		currentUser.albums.add(newAlbum);
+	}
+	
+	public boolean deleteAlbum(User userHoldingAlbum, Album albumToDelete){
+		//these loops are unnecessary checks really
+		for(User user : users){
+			if(user.equals(userHoldingAlbum)){
+				for(Album album : user.albums){
+					if(album.equals(albumToDelete)){
+						//remove album
+						user.albums.remove(albumToDelete);
+						return true;
+					}
+				}
+				System.out.println("Album was not found");
+			}
+		}
+		System.out.println("User was not found");
 		return false;
 	}
 	

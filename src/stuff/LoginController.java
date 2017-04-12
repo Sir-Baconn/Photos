@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -62,6 +64,10 @@ public class LoginController {
 			currentWindow.close();
 			//return;?
 		}else{
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setHeaderText("Invalid Credentials");
+			alert.setContentText("Username or password is incorrect");
+			alert.showAndWait();
 			System.out.println("Username or password is invalid.");
 		}
 	}

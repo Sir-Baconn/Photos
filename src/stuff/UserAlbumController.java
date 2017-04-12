@@ -1,11 +1,22 @@
 package stuff;
 
+
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class UserAlbumController {
 	
@@ -39,12 +50,27 @@ public class UserAlbumController {
 	@FXML
 	private Text albumNameText;
 	
+	@FXML
+	private ImageView previewImage;
+	
 	private Album currentAlbum;
 	private User loggedInUser;
 	
 	@FXML
-	private void addPhoto(ActionEvent e){
+	private void addPhoto(ActionEvent e) throws IOException{
+		FileChooser choose = new FileChooser();
+		choose.setTitle("Open Resource File");
+		 choose.getExtensionFilters().addAll(
+		         new ExtensionFilter("Image Files", "*.png", "*.jpg"));
+		 Stage stage = (Stage) movePhotoButton.getScene().getWindow();
+		 File selectedFile = choose.showOpenDialog(stage);
 		
+		 if (selectedFile != null) {
+			 selectedFile.createNewFile();
+			 FileWriter fw = new FileWriter(selectedFile);
+			 fw.write(selectedFile.getName());
+//			saveFileRoutine(selectedFile);
+		 }
 	}
 	
 	@FXML
@@ -88,6 +114,7 @@ public class UserAlbumController {
 	}
 	
 	public void initialize(User loggedInUser, Album currentAlbum){
+		this.previewImage.setVisible(false);
 		this.loggedInUser = loggedInUser;
 		this.currentAlbum = currentAlbum;
 	}
@@ -95,5 +122,16 @@ public class UserAlbumController {
 	public void start(Stage primaryStage, Pane layout){
 		
 	}
+	
+	private void storeImage(File file){
+//        try {
+//        	
+//               
+//            
+//        } catch (IOException ex) {
+//            System.out.println(ex);
+//        }
+         
+    }
 	
 }

@@ -90,20 +90,20 @@ public class UserMainMenuController {
 			confirmBox.setScene(scene);
 			confirmBox.setTitle("Add Album");
 			confirmBox.show();
-			controller.initialize(loggedInUser);
+			controller.initialize(loggedInUser, albumsListView);
 		}catch(Exception error){
 			error.printStackTrace();
 		}
 		
-		confirmBox.setOnCloseRequest(new EventHandler<WindowEvent>(){
-
-			@Override
-			public void handle(WindowEvent arg0) {
-				userAlbumsObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUserAlbums(loggedInUser));
-				albumsListView.setItems(userAlbumsObsList);
-			}
-			
-		});
+//		confirmBox.setOnCloseRequest(new EventHandler<WindowEvent>(){
+//
+//			@Override
+//			public void handle(WindowEvent arg0) {
+//				userAlbumsObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUserAlbums(loggedInUser));
+//				albumsListView.setItems(userAlbumsObsList);
+//			}
+//			
+//		});
 		
 	}
 	
@@ -142,6 +142,7 @@ public class UserMainMenuController {
 		for(Album album : userAlbumsObsList){
 			System.out.println(album.toString());
 		}
+		
 		renameTextField.setVisible(true);
 		submitRenameButton.setVisible(true);
 	}
@@ -154,6 +155,7 @@ public class UserMainMenuController {
 		}
 		
 		albumsListView.getSelectionModel().getSelectedItem().setName(renameTextField.getText());
+		albumsListView.refresh();
 		try {
 			Account.writeAccount(PhotoAlbum.globalAccount);
 		} catch (FileNotFoundException err) {
@@ -161,7 +163,7 @@ public class UserMainMenuController {
 		} catch (IOException err) {
 			err.printStackTrace();
 		}
-		
+		userAlbumsObsList = FXCollections.observableArrayList(loggedInUser.albums);
 		renameTextField.clear();
 		renameTextField.setVisible(false);
 		submitRenameButton.setVisible(false);
@@ -237,6 +239,10 @@ public class UserMainMenuController {
 			
 		});
 		
+	}
+	
+	public void refresh(){
+		albumsListView.refresh();
 	}
 
 }

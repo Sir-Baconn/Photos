@@ -8,8 +8,8 @@
 
 <Pane prefHeight="133.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserCreateAlbumController">
    <children>
-      <TextField fx:id="albumNameTextField" layoutX="164.0" layoutY="22.0" />
-      <Label fx:id="albumNameLabel" layoutX="68.0" layoutY="26.0" text="Album Name :" />
-      <Button fx:id="createAlbumButton" layoutX="224.0" layoutY="67.0" mnemonicParsing="false" onAction="#createAlbum" text="Create Album" />
+      <TextField fx:id="albumNameTextField" layoutX="120.0" layoutY="22.0" />
+      <Label fx:id="albumNameLabel" layoutX="10.0" layoutY="26.0" text="Album Name :" />
+      <Button fx:id="createAlbumButton" layoutX="140.0" layoutY="67.0" mnemonicParsing="false" onAction="#createAlbum" text="Create Album" />
    </children>
 </Pane>

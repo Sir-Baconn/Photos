@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="747.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserAlbumController">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="previewImage" fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="932.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />

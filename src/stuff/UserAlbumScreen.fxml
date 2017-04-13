@@ -9,14 +9,6 @@
 
 <AnchorPane prefHeight="747.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserAlbumController">
    <children>
-      <ImageView fx:id="previewImage" fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="932.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="932.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="712.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="addPhotoButton" layoutX="237.0" layoutY="533.0" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo" />
       <Button fx:id="deletePhotoButton" layoutX="367.0" layoutY="533.0" mnemonicParsing="false" onAction="#deletePhoto" text="Delete Photo" />
       <Button fx:id="captionPhotoButton" layoutX="509.0" layoutY="533.0" mnemonicParsing="false" onAction="#captionPhoto" text="Caption Photo" />
@@ -31,5 +23,9 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <ScrollPane fx:id="imagePane" layoutX="100.0" layoutY="50.0" prefHeight="475.0" prefWidth="1039.0">
+         <content>
+            <FlowPane fx:id="imagesBox" prefHeight="474.0" prefWidth="1038.0" />
+         </content></ScrollPane>
    </children>
 </AnchorPane>

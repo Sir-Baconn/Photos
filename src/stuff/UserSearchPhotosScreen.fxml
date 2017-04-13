@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="593.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stuff.UserSearchPhotosController">
+   <children>
+      <TextField fx:id="tagsTextField" layoutX="212.0" layoutY="49.0" />
+      <Button fx:id="searchButton" layoutX="309.0" layoutY="89.0" mnemonicParsing="false" onAction="#searchPhotos" text="Search" />
+      <DatePicker fx:id="startDatePicker" layoutX="187.0" layoutY="14.0" />
+      <DatePicker fx:id="endDatePicker" layoutX="467.0" layoutY="14.0" />
+      <Label fx:id="startDateLabel" layoutX="112.0" layoutY="18.0" text="Start Date :" />
+      <Label fx:id="endDateLabel" layoutX="392.0" layoutY="18.0" text="End Date :" />
+      <Label fx:id="tagsLabel" layoutX="112.0" layoutY="53.0" text="Tags :" />
+      <Label fx:id="photoResultsLabel" layoutX="112.0" layoutY="131.0" text="Photo Results :" />
+      <Button fx:id="createAlbumFromResultsButton" layoutX="117.0" layoutY="543.0" mnemonicParsing="false" onAction="#createAlbum" text="Create Album from Results" />
+      <ScrollPane fx:id="imagePane" layoutX="112.0" layoutY="161.0" prefHeight="365.0" prefWidth="747.0">
+         <content>
+            <FlowPane fx:id="imagesBox" prefHeight="364.0" prefWidth="749.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -2,13 +2,13 @@ package stuff;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,9 +18,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class UserMainMenuController {
 	
@@ -179,7 +177,7 @@ public class UserMainMenuController {
 		try{
 			Pane pane = (Pane) root.load();
 			UserAlbumController controller = root.getController();
-			//controller.start(this.primaryStage, pane);
+			controller.start(pane);
 			Scene scene = new Scene(pane, 1212, 747);
 			albumStage.setScene(scene);
 			albumStage.setTitle("Album");
@@ -192,15 +190,26 @@ public class UserMainMenuController {
 	
 	@FXML
 	private void searchPhotos(ActionEvent e){
+		Stage searchStage = new Stage();
+		FXMLLoader root = new FXMLLoader();
+		root.setLocation(getClass().getResource("/stuff/UserSearchPhotosScreen.fxml"));
 		
+		try{
+			Pane pane = (Pane) root.load();
+			UserSearchPhotosController controller = root.getController();
+			//controller.start(pane);
+			Scene scene = new Scene(pane, 892.0, 593);
+			searchStage.setScene(scene);
+			searchStage.setTitle("Search for Photos");
+			searchStage.show();
+			controller.initialize(albumsListView.getSelectionModel().getSelectedItem());
+		}catch(Exception error){
+			error.printStackTrace();
+		}
 	}
 	
 	protected void listAllAlbums() {
 		albumsListView.setItems(userAlbumsObsList);
-	}
-	
-	public void addAlbumToList(Album album){
-		
 	}
 	
 	public void initialize(String username, String password){
@@ -227,8 +236,8 @@ public class UserMainMenuController {
 				if(newValue == null)			//changed is called on delete for some reason even though we clear selections and this becomes null so exit, otherwise there is an exception
 					return;
 				numPhotosLabel.setText("Number of Photos: " + newValue.getNumPhotos());
-				earliestDateLabel.setText("Date of earliest photo: " + " no date implementation yet");
-				latestDateLabel.setText("Date of latest photo: " + " no date implementation yet");
+				earliestDateLabel.setText("Date of earliest photo: " + newValue.getEarliestDatedPhoto());
+				latestDateLabel.setText("Date of latest photo: " + newValue.getLatestDatedPhoto());
 				albumNameLabel.setText("Album Name: " + newValue.getName());
 				
 				numPhotosLabel.setVisible(true);

@@ -15,8 +15,9 @@ public class Album implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
-	public List<Photo> photos;
-	private int numPhotos;
+	private List<Photo> photos;
+	private Date startDate;
+	private Date endDate;
 	
 	public Album(String name){
 		this.name = name;
@@ -39,8 +40,16 @@ public class Album implements Serializable{
 		return new Date();
 	}
 	
+	public List<Photo> getPhotos(){
+		return this.photos;
+	}
+	
 	public void setName(String name){
 		this.name = name;
+	}
+	
+	public void addPhotoToAlbum(Photo photo){
+		photos.add(photo);
 	}
 	
 	public String toString(){

@@ -26,7 +26,7 @@ public class UserCreateAlbumController {
 	
 	private User loggedInUser;
 	
-	private ListView albumsListView;
+	private ListView<Album> albumsListView;
 	
 	private ObservableList<Album> userAlbumsObsList;
 	
@@ -37,12 +37,12 @@ public class UserCreateAlbumController {
 		Album album = new Album(albumNameTextField.getText());
 		//PhotoAlbum.globalAccount.addAlbum(loggedInUser, album);
 		
+		loggedInUser.addAlbum(album);
 		try {
 			Account.writeAccount(PhotoAlbum.globalAccount);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		loggedInUser.addAlbum(album);
 		userAlbumsObsList = FXCollections.observableArrayList(loggedInUser.albums);
 		albumsListView.setItems(userAlbumsObsList);
 		albumsListView.refresh();
@@ -50,7 +50,7 @@ public class UserCreateAlbumController {
 		stage.close();//cannot close window this way or updating list does not work (must x out, try to fix later)
 	}
 	
-	public void initialize(User currentUser, ListView albumsListView){
+	public void initialize(User currentUser, ListView<Album> albumsListView){
 		this.loggedInUser = currentUser;
 		this.albumsListView = albumsListView;
 	}

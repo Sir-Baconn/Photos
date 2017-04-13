@@ -43,7 +43,7 @@ public class AdminController {
 	
 	public void initialize(){
 		deleteButton.setVisible(false);
-		usersObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUsers());
+		usersObsList = FXCollections.observableArrayList(Photos.globalAccount.getAllUsers());
 		listAllUsers();
 		adminCombo.valueProperty().addListener(new ChangeListener<String>(){
 
@@ -51,7 +51,7 @@ public class AdminController {
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				switch(observable.getValue().toString()){
 					case "List Users":
-						usersObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUsers());
+						usersObsList = FXCollections.observableArrayList(Photos.globalAccount.getAllUsers());
 						if(!userListView.isVisible()){
 							userListView.setVisible(true);
 						}
@@ -139,13 +139,13 @@ public class AdminController {
 	@FXML
 	private void deleteUser(ActionEvent e){
 		User userToDelete = new User(userListView.getSelectionModel().getSelectedItem().username, userListView.getSelectionModel().getSelectedItem().password);
-		System.out.println("User selected: " + userToDelete);
-		PhotoAlbum.globalAccount.deleteUser(userToDelete);
-		usersObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUsers());
+		//System.out.println("User selected: " + userToDelete);
+		Photos.globalAccount.deleteUser(userToDelete);
+		usersObsList = FXCollections.observableArrayList(Photos.globalAccount.getAllUsers());
 		listAllUsers();
 		Account.clearAccountData();
 		try {
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		} catch (FileNotFoundException err) {
 			err.printStackTrace();
 		} catch (IOException err) {

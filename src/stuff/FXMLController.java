@@ -39,22 +39,22 @@ public class FXMLController {
 			
 		}else{
 			if(UserName.getText().equals("admin")){
-				System.out.println("You can not create an admin account. If you are the admin use admin credentials to log in.");
+				//System.out.println("You can not create an admin account. If you are the admin use admin credentials to log in.");
 				return;
 			}
 			if(this.Password.getText().equals(this.PasswordConf.getText())){
-				if(PhotoAlbum.globalAccount == null){
-					System.out.println("we did something wrong");
+				if(Photos.globalAccount == null){
+					//System.out.println("we did something wrong");
 				}
 				//Account tempAcc = Account.getAccount();
-				if(!PhotoAlbum.globalAccount.isEmpty && PhotoAlbum.globalAccount.userExists(UserName.getText(), Password.getText())){
+				if(!Photos.globalAccount.isEmpty && Photos.globalAccount.userExists(UserName.getText(), Password.getText())){
 					this.UsernameTaken.setVisible(true);
 					//Name already taken label comes up
 				}else{
-					System.out.println("entered");
+					//System.out.println("entered");
 					try{
-						PhotoAlbum.globalAccount.addUser(this.UserName.getText(), this.Password.getText());
-						Account.writeAccount(PhotoAlbum.globalAccount);
+						Photos.globalAccount.addUser(this.UserName.getText(), this.Password.getText());
+						Account.writeAccount(Photos.globalAccount);
 						this.Success.setVisible(true);
 					}catch(Exception ez){
 						ez.printStackTrace();

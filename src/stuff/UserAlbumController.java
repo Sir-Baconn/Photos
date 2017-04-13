@@ -96,8 +96,8 @@ public class UserAlbumController {
 				@Override
 				public void handle(MouseEvent arg0) {
 					ImageView img = (ImageView)arg0.getSource();
-					System.out.println(img.getImage().toString());
-					System.out.println(imageViews.indexOf(img));
+					//System.out.println(img.getImage().toString());
+					//System.out.println(imageViews.indexOf(img));
 					photoClicked = currentAlbum.getPhotos().get(imageViews.indexOf(img));
 				}
 			});
@@ -107,7 +107,7 @@ public class UserAlbumController {
 			imagesBox.getChildren().add(imageViews.get(currentAlbum.getNumPhotos()));
 			imagePane.setContent(imagesBox);
 			currentAlbum.addPhotoToAlbum(photo);
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		}
 		
 		
@@ -126,7 +126,7 @@ public class UserAlbumController {
 		imagePane.setContent(imagesBox);
 		Account.clearAccountData();
 		try {
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		} catch (FileNotFoundException err) {
 			err.printStackTrace();
 		} catch (IOException err) {
@@ -144,7 +144,7 @@ public class UserAlbumController {
 	@FXML
 	private void focusPhoto(ActionEvent e){
 		if(photoClicked == null){
-			System.out.println("Click on a photo first");
+			//System.out.println("Click on a photo first");
 			return;
 		}
 		
@@ -204,14 +204,14 @@ public class UserAlbumController {
 		imagePane.setPannable(true);
 		for(int i = 0; i < currentAlbum.getNumPhotos(); i++){
 			Photo photo = currentAlbum.getPhotos().get(i);
-			System.out.println(photo.getFilePath());
+			//System.out.println(photo.getFilePath());
 			imageViews.add(new ImageView());
 			imageViews.get(i).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
 				@Override
 				public void handle(MouseEvent arg0) {
 					ImageView img = (ImageView)arg0.getSource();
-					System.out.println(img.getImage().toString());
-					System.out.println(imageViews.indexOf(img));
+					//System.out.println(img.getImage().toString());
+					//System.out.println(imageViews.indexOf(img));
 					photoClicked = currentAlbum.getPhotos().get(imageViews.indexOf(img));
 				}
 			});

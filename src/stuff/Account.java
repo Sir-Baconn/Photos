@@ -12,30 +12,66 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class containing the functionality to write data
+ * @author Steve Matti, Gustavo Flores
+ *
+ */
 public class Account implements Serializable{
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Directory for storage
+	 */
 	public static final String storeDir = "src/dat";
+	/**
+	 * Name of file for storage
+	 */
 	public static final String storeFile = "users.dat";
+	/**
+	 * First start up
+	 */
 	public boolean isEmpty = true;
+	/**
+	 * Users currently in the database
+	 */
 	public List<User> users;										//change this to a list
+	/**
+	 * The admin of the entire thing
+	 */
 	public Admin admin;
 	
 	public Account(){
 		users = new ArrayList<User>();
 	}
 	
+	/**
+	 * Adds a user to the list
+	 * @param username Username of the new User
+	 * @param password Password of the new User
+	 * @throws IOException
+	 */
 	public void addUser(String username, String password) throws IOException{
 		users.add(new User(username, password));
-//		for(User user : users)
-//			System.out.println(user);
 		this.isEmpty = false;
 	}
 	
+	/**
+	 * Writes the data to the .dat file
+	 * @param account Data class to be written
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static void writeAccount(Account account) throws FileNotFoundException, IOException{
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
 		oos.writeObject(account);
 	}
 	
+	/**
+	 * Reads from the .dat file
+	 * @return Object containing all the data
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public static Account readAccount() throws IOException, ClassNotFoundException{
 		try{
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(storeDir + File.separator + storeFile));
@@ -92,6 +128,12 @@ public class Account implements Serializable{
 		return user.albums;
 	}
 	
+	/**
+	 * Gets the designated User
+	 * @param username User's username
+	 * @param password User's password
+	 * @return
+	 */
 	public User getUser(String username, String password){
 		User tempUser = new User(username, password);
 		for(User user : users){
@@ -103,6 +145,11 @@ public class Account implements Serializable{
 		return null;
 	}
 	
+	/**
+	 * Deletes a given User
+	 * @param userToDelete
+	 * @return
+	 */
 	public boolean deleteUser(User userToDelete){
 		//loop is unnecessary
 		for(User user : users){
@@ -111,14 +158,11 @@ public class Account implements Serializable{
 				return true;
 			}
 		}
-		System.out.println("User to delete was not found");
+		//System.out.println("User to delete was not found");
 		return false;
 	}
 	
 	public void addAlbum(User currentUser, Album newAlbum){
-		for(Album a : currentUser.albums){
-			System.out.println(a);
-		}
 		currentUser.albums.add(newAlbum);
 	}
 	
@@ -133,10 +177,10 @@ public class Account implements Serializable{
 						return true;
 					}
 				}
-				System.out.println("Album was not found");
+				//System.out.println("Album was not found");
 			}
 		}
-		System.out.println("User was not found");
+		//System.out.println("User was not found");
 		return false;
 	}
 	

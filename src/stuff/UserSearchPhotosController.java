@@ -73,7 +73,7 @@ public class UserSearchPhotosController {
 		for(int i = 0; i < currentAlbum.getNumPhotos(); i++){
 			Photo photo = currentAlbum.getPhotos().get(i);
 			if(photo.getDateUploaded().after(startDate) && photo.getDateUploaded().before(endDate)){
-				System.out.println("found a photo");
+				//System.out.println("found a photo");
 				imageViews.add(new ImageView());
 				imageViews.get(j).setImage(new Image("file:" + photo.getFilePath()));
 				imageViews.get(j).setFitHeight(150);
@@ -93,7 +93,7 @@ public class UserSearchPhotosController {
 	
 	public void initialize(Album selectedItem) {
 		this.currentAlbum = selectedItem;
-		System.out.println(currentAlbum.getNumPhotos());
+		//System.out.println(currentAlbum.getNumPhotos());
 		imageViews = new ArrayList<ImageView>(currentAlbum.getNumPhotos());
 		double spacingFactor = 50;
 		imagesBox.setHgap(spacingFactor);

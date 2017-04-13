@@ -19,16 +19,16 @@ public class Admin extends User{
 	}
 	
 	public boolean createUser(String username, String password){
-		if(!PhotoAlbum.globalAccount.userExists(username, password)){
+		if(!Photos.globalAccount.userExists(username, password)){
 			try {
-				System.out.println("Admin: added a new user");
-				PhotoAlbum.globalAccount.addUser(username, password);
+				//System.out.println("Admin: added a new user");
+				Photos.globalAccount.addUser(username, password);
 				return true;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Admin: failed to add new user because user already exists");
+		//System.out.println("Admin: failed to add new user because user already exists");
 		return false;
 	}
 	

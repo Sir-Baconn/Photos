@@ -46,20 +46,20 @@ public class LoginController {
 	@FXML
 	private void login(ActionEvent e){
 		Stage currentWindow = (Stage)loginBut.getScene().getWindow();
-		System.out.println("entered");
+		//System.out.println("entered");
 		if(userTextField.getText().length() < 1 || passwordTextField.getText().length() < 1){
-			System.out.println("Please enter both a Username and Password.");
+			//System.out.println("Please enter both a Username and Password.");
 			return;
 		}
 		
 		if(Admin.isAdmin(userTextField.getText(), passwordTextField.getText())){
-			System.out.println("Admin access approved");
+			//System.out.println("Admin access approved");
 			loadAdminPage();
 			return;
 		}
 		//Account tempAcc = Account.getAccount();
-		if(!PhotoAlbum.globalAccount.isEmpty && PhotoAlbum.globalAccount.userExists(userTextField.getText(), passwordTextField.getText())){
-			System.out.println("User found!");
+		if(!Photos.globalAccount.isEmpty && Photos.globalAccount.userExists(userTextField.getText(), passwordTextField.getText())){
+			//System.out.println("User found!");
 			loadUserPage();
 			currentWindow.close();
 			//return;?
@@ -68,7 +68,7 @@ public class LoginController {
 			alert.setHeaderText("Invalid Credentials");
 			alert.setContentText("Username or password is incorrect");
 			alert.showAndWait();
-			System.out.println("Username or password is invalid.");
+			//System.out.println("Username or password is invalid.");
 		}
 	}
 	
@@ -133,6 +133,7 @@ public class LoginController {
 	}
 	
 	public void start(Stage primaryStage, Pane layout) {
+		createBut.setVisible(false);
 		this.primaryStage = primaryStage;
 		this.layout = layout;
 	}

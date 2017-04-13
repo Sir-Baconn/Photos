@@ -32,14 +32,14 @@ public class UserCreateAlbumController {
 	
 	@FXML
 	public void createAlbum(ActionEvent e){
-		System.out.println("creating album...");
+		//System.out.println("creating album...");
 		//Stage currentWindow = (Stage)createAlbumButton.getScene().getWindow();
 		Album album = new Album(albumNameTextField.getText());
 		//PhotoAlbum.globalAccount.addAlbum(loggedInUser, album);
 		
 		loggedInUser.addAlbum(album);
 		try {
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

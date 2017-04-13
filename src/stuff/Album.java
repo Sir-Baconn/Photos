@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Album class
+ * @author Steven Mattia, Gustavo Flores
+ *
+ */
 public class Album implements Serializable{
 	
 	//needs stuff - list of photos, the user of these photos, etc (look at assignment)
@@ -14,9 +19,21 @@ public class Album implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * Name of the Album
+	 */
 	private String name;
+	/**
+	 * List of photos in the album
+	 */
 	private List<Photo> photos;
+	/**
+	 * Start date
+	 */
 	private Date startDate;
+	/**
+	 * End date
+	 */
 	private Date endDate;
 	
 	public Album(String name){

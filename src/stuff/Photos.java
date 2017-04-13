@@ -9,15 +9,19 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class PhotoAlbum extends Application {
+/**
+ * Main class
+ * @author Steven Mattia, Gustavo Flores
+ *
+ */
+public class Photos extends Application {
 	
-	public static PhotoAlbum instance;
-	
+	/**
+	 * Account which all data is written to over instances
+	 */
 	public static Account globalAccount;
 	
 	public static void main(String[] args){
-		if(instance == null)
-			instance = new PhotoAlbum();
 		globalAccount = Account.getAccount();
 		if(!globalAccount.adminExists()){
 			globalAccount.admin = new Admin("admin", "admin");
@@ -33,8 +37,6 @@ public class PhotoAlbum extends Application {
 	}
 	
 	public void start(Stage primaryStage) throws IOException{
-		if(globalAccount == null)
-			System.out.println("why me");
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/stuff/LoginPage.fxml"));
 		

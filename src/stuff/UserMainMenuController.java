@@ -108,21 +108,21 @@ public class UserMainMenuController {
 	@FXML
 	private void deleteAlbum(ActionEvent e){
 		if(albumsListView.getSelectionModel().getSelectedItem() == null){
-			System.out.println("You must select an album first!");
+			//System.out.println("You must select an album first!");
 			return;
 		}
-		userAlbumsObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUserAlbums(loggedInUser));
+		userAlbumsObsList = FXCollections.observableArrayList(Photos.globalAccount.getAllUserAlbums(loggedInUser));
 		Album albumToDelete = new Album(albumsListView.getSelectionModel().getSelectedItem().getName());
 		if(albumsListView.getSelectionModel().getSelectedItem() != null){
 			albumsListView.getSelectionModel().clearSelection();
 		}
-		System.out.println("Album selected: " + albumToDelete);
-		PhotoAlbum.globalAccount.deleteAlbum(loggedInUser, albumToDelete);
-		userAlbumsObsList = FXCollections.observableArrayList(PhotoAlbum.globalAccount.getAllUserAlbums(loggedInUser));
+		//System.out.println("Album selected: " + albumToDelete);
+		Photos.globalAccount.deleteAlbum(loggedInUser, albumToDelete);
+		userAlbumsObsList = FXCollections.observableArrayList(Photos.globalAccount.getAllUserAlbums(loggedInUser));
 		listAllAlbums();
 		Account.clearAccountData();
 		try {
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		} catch (FileNotFoundException err) {
 			err.printStackTrace();
 		} catch (IOException err) {
@@ -133,10 +133,10 @@ public class UserMainMenuController {
 	@FXML
 	private void renameAlbum(ActionEvent e){
 		if(albumsListView.getSelectionModel().getSelectedItem() == null){
-			System.out.println("Select an album first");
+			//System.out.println("Select an album first");
 			return;
 		}
-		System.out.println("Albums are: ");
+		//System.out.println("Albums are: ");
 		for(Album album : userAlbumsObsList){
 			System.out.println(album.toString());
 		}
@@ -148,14 +148,14 @@ public class UserMainMenuController {
 	@FXML
 	private void submitRename(ActionEvent e){
 		if(renameTextField.getText().length() < 1){
-			System.out.println("Enter a name please");
+			//System.out.println("Enter a name please");
 			return;
 		}
 		
 		albumsListView.getSelectionModel().getSelectedItem().setName(renameTextField.getText());
 		albumsListView.refresh();
 		try {
-			Account.writeAccount(PhotoAlbum.globalAccount);
+			Account.writeAccount(Photos.globalAccount);
 		} catch (FileNotFoundException err) {
 			err.printStackTrace();
 		} catch (IOException err) {
@@ -219,7 +219,7 @@ public class UserMainMenuController {
 		albumNameLabel.setVisible(false);
 		renameTextField.setVisible(false);
 		submitRenameButton.setVisible(false);
-		loggedInUser = PhotoAlbum.globalAccount.getUser(username, password);
+		loggedInUser = Photos.globalAccount.getUser(username, password);
 		userAlbumsObsList = FXCollections.observableArrayList(loggedInUser.albums);
 		albumsListView.setItems(userAlbumsObsList);
 		loggedInAsText.setText(loggedInAsText.getText() + loggedInUser.username);

@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
+/**
+ * Photo class
+ * @author Steven Mattia
+ *
+ */
 public class Photo implements Serializable{
 	
 	/**
@@ -11,10 +16,23 @@ public class Photo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	//needs stuff - dates, times, tags, etc (look at assignment)
+	
 	private String name;
+	/**
+	 * Path photo is contained in
+	 */
 	private String filePath;
+	/**
+	 * Photo date taken
+	 */
 	private Date dateUploaded;
+	/**
+	 * Photo's caption
+	 */
 	private String caption;
+	/**
+	 * Hashmap of tags
+	 */
 	private HashMap<String, String> tags;
 	
 	public Photo(String path){
